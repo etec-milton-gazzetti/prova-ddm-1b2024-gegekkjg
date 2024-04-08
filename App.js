@@ -1,14 +1,65 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Biomas</Text>
+      <TouchableOpacity onPress={()=>navigation.navigate("PageOne")}>
+        <Text>Conheça os Biomas</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("About")}>
+        <Text>Sobre</Text>
+      </TouchableOpacity>
+
     </View>
   );
 }
+
+function PageoneScreen({navigation}) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Biomas</Text>
+      <TouchableOpacity onPress={()=>navigation.goBack()}>
+        <Text>Voltar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("About")}>
+        <Text>Sobre</Text>
+      </TouchableOpacity>
+
+    </View>
+  );
+}
+
+function AboutScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Tela de sobre</Text>
+      <TouchableOpacity onPress={()=>navigation.goBack()}>
+        <Text>Voltar</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name ="About" component={AboutScreen} />
+        <Stack.Screen name='PageOne' component={PageoneScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
