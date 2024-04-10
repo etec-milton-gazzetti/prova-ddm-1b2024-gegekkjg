@@ -1,48 +1,51 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import fundo from './assets/BIOMAS.png';
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Biomas</Text>
-      <TouchableOpacity onPress={()=>navigation.navigate("PageOne")}>
-        <Text>Conheça os Biomas</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={()=>navigation.navigate("About")}>
-        <Text>Sobre</Text>
-      </TouchableOpacity>
-
-    </View>
+    <ImageBackground source={fundo} style={{width: '100%', height: '100%', backgroundColor: '#F4F2E8'}}>
+    <View style={{ alignItems: 'center', justifyContent: 'center', top:'83%', }}>
+      <View style={{justifyContent: "space-around", flexDirection: "row"}}>
+    <TouchableOpacity style={styles.botao} onPress={()=>navigation.navigate("PageOne")}>
+      <Text style={{color:"white"}}>Conheça os biomas</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.botao} onPress={()=>navigation.navigate("About")}>
+      <Text style={{color:"white"}}>Sobre</Text>
+    </TouchableOpacity>
+      </View>
+      </View>
+    </ImageBackground>
   );
 }
 
 function PageoneScreen({navigation}) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <TouchableOpacity onPress={()=>navigation.navigate("Amazonia")}>
-      <Text>Amazônia</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>navigation.navigate("Caatinga")}>
-      <Text>Caatinga</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>navigation.navigate("Cerrado")}>
-      <Text>Cerrado</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>navigation.navigate("MataAtlantica")}>
-      <Text>Mata Atlântica</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>navigation.navigate("Pampa")}>
-      <Text>Pampa</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>navigation.navigate("Pantanal")}>
-      <Text>Pantanal</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={()=>navigation.goBack()}>
-      <Text>Voltar</Text>
-    </TouchableOpacity>
-  </View>
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+      <TouchableOpacity onPress={()=>navigation.navigate("Amazonia")} style={styles.botaoA}>
+        <Text>Amazônia</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("Caatinga")} style={styles.botaoA}>
+        <Text>Caatinga</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("Cerrado")} style={styles.botaoA}>
+        <Text>Cerrado</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("MataAtlantica")} style={styles.botaoA}>
+        <Text>Mata Atlântica</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("Pampa")} style={styles.botaoA}>
+        <Text>Pampa</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate("Pantanal")} style={styles.botaoA}>
+        <Text>Pantanal</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.botaoA}>
+        <Text>Voltar</Text>
+      </TouchableOpacity>
+      </View>
   );
 }
 
@@ -153,5 +156,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  botao: {
+    marginHorizontal:10, 
+    backgroundColor:'#1E9F67', 
+    height:'200%', 
+    alignItems:'center', 
+    width: '37%', 
+    borderRadius:15,
+  },
+  botaoA: {
+    marginHorizontal:20, 
+    backgroundColor:'#1E9F67', 
+    height:'20%', 
+    alignItems:'center', 
+    width: '70%', 
+    borderRadius:15,
+    marginVertical: 10,
   },
 });
