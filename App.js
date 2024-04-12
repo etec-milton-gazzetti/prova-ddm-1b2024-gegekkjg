@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView } from 'react-native';
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView,Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import fundo from './assets/BIOMAS.png';
+import eu from './assets/eu.jpeg';
 
 function HomeScreen({ navigation }) {
   return (
@@ -29,22 +30,22 @@ function PageoneScreen({ navigation }) {
           <TouchableOpacity onPress={() => navigation.navigate("Amazonia")} style={styles.botaoA}>
             <Text style={styles.text}>Amazônia</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Caatinga")} style={styles.botaoA}>
+          <TouchableOpacity onPress={() => navigation.navigate("Caatinga")} style={styles.botaoC}>
             <Text style={styles.text}>Caatinga</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Cerrado")} style={styles.botaoA}>
+          <TouchableOpacity onPress={() => navigation.navigate("Cerrado")} style={styles.botaoD}>
             <Text style={styles.text}>Cerrado</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("MataAtlantica")} style={styles.botaoA}>
+          <TouchableOpacity onPress={() => navigation.navigate("MataAtlantica")} style={styles.botaoE}>
             <Text style={styles.text}>Mata Atlântica</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Pampa")} style={styles.botaoA}>
+          <TouchableOpacity onPress={() => navigation.navigate("Pampa")} style={styles.botaoF}>
             <Text style={styles.text}>Pampa</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Pantanal")} style={styles.botaoA}>
+          <TouchableOpacity onPress={() => navigation.navigate("Pantanal")} style={styles.botaoG}>
             <Text style={styles.text}>Pantanal</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.botaoA}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.botaoH}>
             <Text style={styles.text}>Voltar</Text>
           </TouchableOpacity>
         </View>
@@ -242,10 +243,12 @@ function PagesevenScreen({ navigation }) {
 
 function AboutScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Tela de sobre</Text>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Text>Voltar</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'#F4F2E8' }}>
+      <Image source={eu} style={styles.foto}></Image>
+      <Text style={styles.text4}>Geovana Rocha Carvalho de Farias</Text>
+      <Text style={styles.text4}>07708</Text>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.botaom}>
+        <Text style={{ fontSize: 15, color: "#F4F2E8" }}>Voltar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -299,6 +302,16 @@ const styles = StyleSheet.create({
   },
   botaoA: {
     alignItems: 'center',
+    backgroundColor: '#0B764B',
+    padding: 25,
+    margin: 5,
+    borderRadius: 5,
+    marginHorizontal: 10,
+    marginVertical: 15,
+    width: '70%',
+  },
+  botaoH: {
+    alignItems: 'center',
     backgroundColor: '#6C9E58',
     padding: 25,
     margin: 5,
@@ -307,8 +320,60 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     width: '70%',
   },
+  botaoC: {
+    alignItems: 'center',
+    backgroundColor: '#CD4217',
+    padding: 25,
+    margin: 5,
+    borderRadius: 5,
+    marginHorizontal: 10,
+    marginVertical: 15,
+    width: '70%',
+  },
+  botaoD: {
+    alignItems: 'center',
+    backgroundColor: '#C2BE2A',
+    padding: 25,
+    margin: 5,
+    borderRadius: 5,
+    marginHorizontal: 10,
+    marginVertical: 15,
+    width: '70%',
+  },
+  botaoE: {
+    alignItems: 'center',
+    backgroundColor: '#249EA8',
+    padding: 25,
+    margin: 5,
+    borderRadius: 5,
+    marginHorizontal: 10,
+    marginVertical: 15,
+    width: '70%',
+  },
+  botaoF: {
+    alignItems: 'center',
+    backgroundColor: '#653889',
+    padding: 25,
+    margin: 5,
+    borderRadius: 5,
+    marginHorizontal: 10,
+    marginVertical: 15,
+    width: '70%',
+  },
+  botaoG: {
+    alignItems: 'center',
+    backgroundColor: '#723D28',
+    padding: 25,
+    margin: 5,
+    borderRadius: 5,
+    marginHorizontal: 10,
+    marginVertical: 15,
+    width: '70%',
+  },
+
   text: {
-    fontSize: 20,
+    fontSize: 30,
+    color: '#F4F2E8',
   },
   text2: {
     fontSize: 17,
@@ -328,13 +393,13 @@ const styles = StyleSheet.create({
     fontSize: 17,
     textAlign: 'left',
     padding: 15,
-    marginHorizontal: 15,
+    marginHorizontal: 20,
     marginVertical: 10,
     textAlign: 'justify',
     textDecorationLine: 'underline'
   },
   text4: {
-    marginHorizontal: 30,
+    marginHorizontal: 36,
     marginVertical: 2,
     fontSize: 15,
     justifyContent: 'space-between',
@@ -360,4 +425,11 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
     textShadowColor: 'yellow',
   },
+  foto:{
+    width: 250,
+    height: 250,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderRadius: 5
+  }
 });
