@@ -1,15 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView,Image } from 'react-native';
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View, ScrollView,Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import fundo from './assets/BIOMAS.png';
-import eu from './assets/eu.jpeg';
 import amazonia from './assets/amazonia.png'
 import caatinga from './assets/caatinga.jpg'
 import cerrado from './assets/cerrado.jpg'
 import mata from './assets/mataat.png'
 import pampa from './assets/pampa.png'
 import pantanal from './assets/pantanal.png'
+import eu from './assets/eu.jpeg'
 
 
 
@@ -494,7 +494,6 @@ const styles = StyleSheet.create({
     padding: 15,
     color: '#723D28',
     textShadowRadius: 2,
-    textShadowColor: 'yellow',
   },
 
   foto:{
